@@ -287,6 +287,78 @@
   .sticky a.s-wa{background:var(--wa);border-color:var(--wa);color:#fff}
   .sticky a.s-call{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
 
+  /* ---------- appointment modal ---------- */
+  .modal-root{position:fixed;inset:0;z-index:100;display:none}
+  .modal-root.is-open{display:block}
+  .modal-backdrop{position:absolute;inset:0;background:rgba(7,26,51,.62)}
+  .modal{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:calc(100% - 24px);max-width:520px;
+    max-height:calc(100vh - 28px);
+    max-height:calc(100dvh - 28px);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    background:#fff;border-radius:20px;
+    box-shadow:0 30px 70px -20px rgba(7,26,51,.55);
+  }
+  .modal-head{
+    position:relative;padding:20px 52px 18px 20px;color:#fff;
+    background:
+      radial-gradient(420px 220px at 90% -40%, rgba(14,159,147,.38), transparent 62%),
+      linear-gradient(170deg,var(--navy-800),var(--navy-900));
+  }
+  .modal-badge{
+    display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--mint);
+    background:rgba(95,216,203,.12);border:1px solid rgba(95,216,203,.25);
+    padding:5px 10px;border-radius:999px;line-height:1.35;
+  }
+  .modal-title{margin-top:12px;font-size:21px;color:#fff}
+  .modal-close{
+    position:absolute;top:14px;right:14px;width:34px;height:34px;
+    display:grid;place-items:center;border-radius:50%;cursor:pointer;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;
+    transition:background .15s ease;
+  }
+  .modal-close:hover{background:rgba(255,255,255,.2)}
+  .modal-close svg{width:16px;height:16px}
+  .modal-body{padding:18px 20px 22px}
+  .modal-note{
+    display:flex;gap:10px;align-items:flex-start;
+    background:var(--teal-tint);border:1px solid #cfe9e5;border-radius:12px;
+    padding:12px;font-size:12.5px;line-height:1.5;color:#1d4a46;
+  }
+  .modal-note svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--teal-dark)}
+  .m-field{margin-top:14px}
+  .m-field label{display:block;font-size:12.5px;font-weight:700;color:var(--navy-800);margin-bottom:6px}
+  .m-field .req{color:#c2410c}
+  .m-field input,.m-field select,.m-field textarea{
+    width:100%;font:inherit;font-size:15px;color:var(--ink);background:#fff;
+    border:1px solid var(--line);border-radius:11px;padding:11px 12px;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .m-field textarea{min-height:76px;resize:vertical;line-height:1.5}
+  .m-field select{
+    appearance:none;-webkit-appearance:none;padding-right:38px;cursor:pointer;
+    background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234d5c6b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 12px center;background-size:16px;
+  }
+  .m-field input:focus,.m-field select:focus,.m-field textarea:focus{
+    outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,159,147,.16)
+  }
+  .m-field input[aria-invalid="true"],.m-field select[aria-invalid="true"]{border-color:#dc2626;background:#fffafa}
+  .m-err{display:none;margin-top:5px;font-size:12px;font-weight:600;color:#dc2626}
+  .m-err.show{display:block}
+  .m-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .m-row .m-field{margin-top:0;min-width:0}
+  .m-submit{margin-top:18px}
+  .m-call{
+    display:block;text-align:center;margin-top:12px;font-size:13.5px;
+    color:var(--ink-soft);font-weight:500;
+  }
+  .m-call a{color:var(--teal-dark);font-weight:700}
+  .m-call a:hover{text-decoration:underline}
+  body.modal-open{overflow:hidden}
+
   /* ---------- responsive ---------- */
   @media (min-width:520px){
     .hero-cta{flex-direction:row;flex-wrap:wrap}
@@ -792,6 +864,88 @@
   </div>
 </footer>
 
+<!-- ================= APPOINTMENT MODAL ================= -->
+<div class="modal-root" id="bookModal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
+    <div class="modal-head">
+      <span class="modal-badge">The Dental Space &bull; Botanical Garden Rd</span>
+      <h2 class="modal-title serif" id="bookTitle">Request an Appointment</h2>
+      <button type="button" class="modal-close" data-close aria-label="Close appointment form">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        <span><b>Clinic Hours:</b> Opens 10:00 AM Sat &bull; Evening &amp; Weekend Slots Available. Located at SMR Vinay Iconia Plaza, Botanical Garden Rd.</span>
+      </p>
+
+      <form id="bookForm" novalidate>
+        <div class="m-field">
+          <label for="bkName">Full Name <span class="req">*</span></label>
+          <input type="text" id="bkName" name="name" placeholder="e.g. Rahul Sharma" autocomplete="name" required>
+          <span class="m-err" id="errName">Please enter your name.</span>
+        </div>
+
+        <div class="m-field">
+          <label for="bkPhone">Phone / WhatsApp Number <span class="req">*</span></label>
+          <input type="tel" id="bkPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+          <span class="m-err" id="errPhone">Please enter a valid phone number (at least 10 digits).</span>
+        </div>
+
+        <div class="m-field">
+          <label for="bkService">Select Treatment / Service <span class="req">*</span></label>
+          <select id="bkService" name="service" required>
+            <option value="General Check-up &amp; Cleaning">General Check-up &amp; Cleaning</option>
+            <option value="Root Canal / Re-RCT">Root Canal / Re-RCT</option>
+            <option value="Dental Implants">Dental Implants</option>
+            <option value="Crowns, Bridges &amp; Dentures">Crowns, Bridges &amp; Dentures</option>
+            <option value="Teeth Whitening &amp; Smile Makeover">Teeth Whitening &amp; Smile Makeover</option>
+            <option value="Braces &amp; Clear Aligners">Braces &amp; Clear Aligners</option>
+            <option value="Kids Dental Care">Kids Dental Care</option>
+            <option value="Emergency Dental Care">Emergency Dental Care</option>
+          </select>
+        </div>
+
+        <div class="m-field">
+          <div class="m-row">
+            <div class="m-field">
+              <label for="bkDate">Preferred Date</label>
+              <input type="date" id="bkDate" name="date">
+            </div>
+            <div class="m-field">
+              <label for="bkTime">Preferred Time</label>
+              <select id="bkTime" name="time">
+                <option value="">Any time</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:30 AM">11:30 AM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="5:00 PM">5:00 PM</option>
+                <option value="6:30 PM">6:30 PM</option>
+                <option value="8:00 PM">8:00 PM</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-field">
+          <label for="bkNote">Note or Symptom Description <span style="color:var(--ink-faint);font-weight:500">(optional)</span></label>
+          <textarea id="bkNote" name="note" placeholder="e.g. Mild pain in upper molar, or looking for teeth cleaning"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-wa btn-block m-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.1-1.4A9.9 9.9 0 1 0 12 2Zm5.8 14c-.2.7-1.4 1.4-2 1.4-.5.1-1.1.1-1.8-.1a12 12 0 0 1-4.4-2.7 11 11 0 0 1-2.3-3.5c-.3-.8-.3-1.5 0-2.1.2-.4.6-.9 1-1 .3-.2.8-.1 1 .1l.3.5.7 1.5c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .6a9 9 0 0 0 3.8 3.1c.3.1.5.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l2 1c.3.1.4.4.3.8Z"/></svg>
+          Send Request via WhatsApp
+        </button>
+
+        <span class="m-call">Or Call Directly: <a href="tel:+919000790024">090007 90024</a></span>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- ================= STICKY MOBILE BAR ================= -->
 <nav class="sticky" aria-label="Quick contact">
   <a class="s-call" href="tel:+919000790024">
@@ -843,6 +997,180 @@
 
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
+})();
+
+/* ---------- Request an Appointment modal ---------- */
+(function(){
+  var WA_NUMBER = '919000790024';
+
+  var root    = document.getElementById('bookModal');
+  var form    = document.getElementById('bookForm');
+  if (!root || !form) return;
+
+  var modal   = root.querySelector('.modal');
+  var elName  = document.getElementById('bkName');
+  var elPhone = document.getElementById('bkPhone');
+  var elSvc   = document.getElementById('bkService');
+  var elDate  = document.getElementById('bkDate');
+  var elTime  = document.getElementById('bkTime');
+  var elNote  = document.getElementById('bkNote');
+  var errName = document.getElementById('errName');
+  var errPhone= document.getElementById('errPhone');
+
+  /* Each treatment card maps to one of the dropdown's service categories. */
+  var SERVICE_MAP = {
+    'Single-Sitting Root Canal'   : 'Root Canal / Re-RCT',
+    'Re-Root Canal (Re-RCT)'      : 'Root Canal / Re-RCT',
+    'Post-RCT Crown Protection'   : 'Crowns, Bridges & Dentures',
+    'Emergency & Same-Day Care'   : 'Emergency Dental Care',
+    'Dental Implants'             : 'Dental Implants',
+    'Crowns & Bridges'            : 'Crowns, Bridges & Dentures',
+    'Full & Partial Dentures'     : 'Crowns, Bridges & Dentures',
+    'Teeth Cleaning & Polishing'  : 'General Check-up & Cleaning',
+    'Tooth-Coloured Fillings'     : 'General Check-up & Cleaning',
+    'Tooth Extraction'            : 'General Check-up & Cleaning',
+    'Digital X-Ray & Diagnosis'   : 'General Check-up & Cleaning',
+    'Teeth Whitening'             : 'Teeth Whitening & Smile Makeover',
+    'Veneers & Smile Design'      : 'Teeth Whitening & Smile Makeover',
+    'Composite Bonding'           : 'Teeth Whitening & Smile Makeover',
+    'Braces — Metal & Ceramic'    : 'Braces & Clear Aligners',
+    'Clear Aligners'              : 'Braces & Clear Aligners',
+    'Kids Dental Care'            : 'Kids Dental Care'
+  };
+
+  var lastFocus = null;
+  var specific  = '';   /* exact card name, when opened from a treatment card */
+
+  function todayISO(){
+    var d = new Date(), m = d.getMonth() + 1, day = d.getDate();
+    return d.getFullYear() + '-' + (m < 10 ? '0' + m : m) + '-' + (day < 10 ? '0' + day : day);
+  }
+  if (elDate) elDate.min = todayISO();
+
+  function clearErrors(){
+    [[elName, errName], [elPhone, errPhone]].forEach(function(p){
+      p[0].removeAttribute('aria-invalid');
+      p[1].classList.remove('show');
+    });
+  }
+
+  function open(serviceValue, specificName){
+    lastFocus = document.activeElement;
+    specific = specificName || '';
+    if (serviceValue){
+      for (var i = 0; i < elSvc.options.length; i++){
+        if (elSvc.options[i].value === serviceValue){ elSvc.selectedIndex = i; break; }
+      }
+    }
+    clearErrors();
+    root.hidden = false;
+    root.classList.add('is-open');
+    document.body.classList.add('modal-open');
+    if (modal) modal.scrollTop = 0;
+    /* Avoid auto-focusing on touch devices, where it yanks up the keyboard. */
+    if (!window.matchMedia('(hover: none)').matches){
+      setTimeout(function(){ elName.focus(); }, 40);
+    }
+  }
+
+  function close(){
+    root.classList.remove('is-open');
+    root.hidden = true;
+    document.body.classList.remove('modal-open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  /* --- triggers: the three "Book via WhatsApp" buttons + every "Ask / Book" --- */
+  document.querySelectorAll('a.btn-wa').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      open('', '');
+    });
+  });
+
+  document.querySelectorAll('.card-link').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var card = a.closest('.card');
+      var h3   = card && card.querySelector('h3');
+      var name = h3 ? h3.textContent.trim() : '';
+      var svc  = SERVICE_MAP[name] || '';
+      e.preventDefault();
+      open(svc, name);
+    });
+  });
+
+  /* --- closing --- */
+  root.addEventListener('click', function(e){
+    if (e.target.hasAttribute && e.target.hasAttribute('data-close')) close();
+    else if (e.target.closest && e.target.closest('[data-close]')) close();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && root.classList.contains('is-open')) close();
+  });
+
+  /* --- keep Tab inside the dialog while it is open --- */
+  modal.addEventListener('keydown', function(e){
+    if (e.key !== 'Tab') return;
+    var f = modal.querySelectorAll('button, input, select, textarea, a[href]');
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
+
+  /* --- submit --- */
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    clearErrors();
+
+    var name  = elName.value.trim();
+    var phone = elPhone.value.trim();
+    var digits = phone.replace(/\D/g, '');
+    var bad = null;
+
+    if (name.length < 2){
+      elName.setAttribute('aria-invalid', 'true');
+      errName.classList.add('show');
+      bad = bad || elName;
+    }
+    if (digits.length < 10){
+      elPhone.setAttribute('aria-invalid', 'true');
+      errPhone.classList.add('show');
+      bad = bad || elPhone;
+    }
+    if (bad){ bad.focus(); return; }
+
+    var service = elSvc.value;
+    var treatment = (specific && specific !== service)
+      ? service + ' (' + specific + ')'
+      : service;
+
+    var dateTxt = '';
+    if (elDate.value){
+      var parts = elDate.value.split('-');
+      var d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+      dateTxt = isNaN(d) ? elDate.value : d.toLocaleDateString('en-IN', {
+        weekday: 'short', day: 'numeric', month: 'short', year: 'numeric'
+      });
+    }
+
+    var lines = [];
+    lines.push('*New Appointment Request*');
+    lines.push('(sent from The Dental Space website)');
+    lines.push('');
+    lines.push('*Name:* ' + name);
+    lines.push('*Phone / WhatsApp:* ' + phone);
+    lines.push('*Treatment:* ' + treatment);
+    if (dateTxt)       lines.push('*Preferred Date:* ' + dateTxt);
+    if (elTime.value)  lines.push('*Preferred Time:* ' + elTime.value);
+    if (elNote.value.trim()) lines.push('*Note:* ' + elNote.value.trim());
+    lines.push('');
+    lines.push('Please confirm an available slot. Thank you!');
+
+    var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank', 'noopener');
+    close();
+  });
 })();
 </script>
 </body>
