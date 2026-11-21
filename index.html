@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Dental Space</title>
+<meta name="description" content="The Dental Space — 5.0 star rated dental clinic on Botanical Garden Road, Kondapur / Gachibowli, Hyderabad. Comfortable root canals, implants, family care and transparent pricing.">
+<meta name="theme-color" content="#0a2240">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#071a33;
+    --navy-800:#0a2240;
+    --navy-700:#0e2d53;
+    --ink:#15202b;
+    --ink-soft:#4d5c6b;
+    --ink-faint:#71808f;
+    --line:#e3e9ef;
+    --page:#ffffff;
+    --surface:#f6f9fc;
+    --teal:#0e9f93;
+    --teal-dark:#0b7f76;
+    --teal-tint:#e6f6f4;
+    --mint:#5fd8cb;
+    --gold:#e0a33a;
+    --wa:#1faa54;
+    --wa-dark:#17863f;
+    --shadow-sm:0 1px 2px rgba(10,34,64,.06), 0 1px 3px rgba(10,34,64,.04);
+    --shadow-md:0 4px 14px rgba(10,34,64,.07), 0 1px 3px rgba(10,34,64,.05);
+    --r-md:14px; --r-lg:20px;
+    --wrap:1120px;
+    --gutter:16px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--page);
+    color:var(--ink);
+    font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    padding-bottom:84px;
+  }
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{margin:0;line-height:1.18;letter-spacing:-.02em;font-weight:600}
+  p{margin:0}
+  ul{margin:0;padding:0;list-style:none}
+  button{font:inherit;color:inherit}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+
+  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+  .serif{font-family:"Fraunces",Georgia,serif;font-weight:500;letter-spacing:-.015em}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    padding:14px 20px;border-radius:999px;border:1px solid transparent;
+    font-weight:600;font-size:15px;letter-spacing:-.01em;cursor:pointer;
+    transition:transform .15s ease, background .15s ease, box-shadow .15s ease, border-color .15s ease;
+    text-align:center;line-height:1.2;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn svg{width:18px;height:18px;flex:none}
+  .btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 22px -10px rgba(31,170,84,.75)}
+  .btn-wa:hover{background:var(--wa-dark)}
+  .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.28)}
+  .btn-ghost:hover{background:rgba(255,255,255,.13)}
+  .btn-teal{background:var(--teal);color:#fff;box-shadow:0 8px 22px -10px rgba(14,159,147,.8)}
+  .btn-teal:hover{background:var(--teal-dark)}
+  .btn-line{background:#fff;color:var(--navy-800);border-color:var(--line)}
+  .btn-line:hover{border-color:#cdd8e2;box-shadow:var(--shadow-sm)}
+  .btn-block{width:100%}
+
+  /* ---------- header ---------- */
+  .site-head{
+    position:sticky;top:0;z-index:60;background:var(--navy-800);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .head-in{display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .brand-mark{
+    width:34px;height:34px;flex:none;border-radius:10px;
+    background:linear-gradient(145deg,#1b4f86,#0e2d53);
+    display:grid;place-items:center;border:1px solid rgba(255,255,255,.16);
+  }
+  .brand-mark svg{width:19px;height:19px}
+  .brand-txt{min-width:0}
+  .brand-name{display:block;color:#fff;font-size:16px;font-weight:600;letter-spacing:-.02em;white-space:nowrap}
+  .brand-sub{display:block;color:#9fb6d0;font-size:10.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .head-nav{display:none;gap:24px;align-items:center}
+  .head-nav a{color:#c9d8e8;font-size:14.5px;font-weight:500}
+  .head-nav a:hover{color:#fff}
+  .head-cta{display:none}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 520px at 88% -8%, rgba(14,159,147,.26), transparent 62%),
+      radial-gradient(700px 440px at 4% 102%, rgba(23,64,111,.65), transparent 65%),
+      linear-gradient(176deg,var(--navy-800) 0%, var(--navy-900) 100%);
+    color:#fff;
+    padding:34px 0 0;
+  }
+  .pill{
+    display:inline-flex;align-items:flex-start;gap:8px;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+    padding:7px 13px 7px 11px;border-radius:999px;
+    font-size:12.5px;font-weight:500;color:#dce8f4;letter-spacing:-.005em;line-height:1.35;
+  }
+  .pill .stars{color:var(--gold);flex:none;letter-spacing:0}
+  h1.hero-h{margin:18px 0 0;font-size:clamp(30px,8.4vw,54px);line-height:1.1;color:#fff}
+  h1.hero-h em{font-style:normal;color:var(--mint)}
+  .hero-sub{margin-top:16px;color:#bed0e2;font-size:16px;max-width:54ch;line-height:1.62}
+  .hero-sub b{color:#fff;font-weight:600}
+  .hero-cta{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+  .hero-hours{display:flex;align-items:center;gap:8px;margin-top:18px;color:#9fb6d0;font-size:13px;font-weight:500}
+  .hero-hours svg{width:15px;height:15px;flex:none;color:var(--mint)}
+  .hero-art{margin-top:30px}
+  .hero-card{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);
+    border-radius:var(--r-lg);padding:18px;
+  }
+  .hero-card h3{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:#8fa8c2;font-weight:700}
+  .mini-list{margin-top:14px;display:grid;gap:11px}
+  .mini-list li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:#dbe7f3}
+  .mini-list svg{width:17px;height:17px;flex:none;margin-top:4px;color:var(--mint)}
+  .mini-list b{color:#fff;font-weight:600}
+
+  /* trust strip */
+  .trust{background:var(--navy-900);padding:20px 0 24px;border-top:1px solid rgba(255,255,255,.07);margin-top:34px}
+  .trust-grid{display:grid;gap:12px}
+  .trust-item{
+    display:flex;gap:12px;align-items:flex-start;
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+    border-radius:var(--r-md);padding:14px;
+  }
+  .trust-ico{
+    width:36px;height:36px;flex:none;border-radius:10px;background:rgba(95,216,203,.12);
+    display:grid;place-items:center;color:var(--mint);
+  }
+  .trust-ico svg{width:19px;height:19px}
+  .trust-t{display:block;color:#fff;font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+  .trust-d{display:block;color:#9fb6d0;font-size:12.5px;margin-top:2px;line-height:1.45}
+
+  /* ---------- sections ---------- */
+  section{scroll-margin-top:70px}
+  .sec{padding:52px 0}
+  .sec-tint{background:var(--surface)}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;color:var(--teal-dark);font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+  .eyebrow::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--teal)}
+  .sec-h{margin-top:12px;font-size:clamp(25px,6.4vw,38px);color:var(--navy-800)}
+  .sec-p{margin-top:12px;color:var(--ink-soft);font-size:15.5px;max-width:62ch}
+
+  /* tabs */
+  .tabs-wrap{margin-top:22px}
+  .tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    flex:none;padding:9px 15px;border-radius:999px;background:#fff;border:1px solid var(--line);
+    font-size:13.5px;font-weight:600;color:var(--ink-soft);white-space:nowrap;cursor:pointer;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .tab:hover{border-color:#cbd6e1;color:var(--navy-700)}
+  .tab[aria-selected="true"]{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
+  .tabs-hint{font-size:12px;color:var(--ink-faint)}
+
+  /* treatment cards */
+  .cards{display:grid;gap:12px;margin-top:18px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:16px;
+    display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow-sm);
+    transition:box-shadow .18s ease, border-color .18s ease, transform .18s ease;
+  }
+  .card:hover{box-shadow:var(--shadow-md);border-color:#d5e0ea;transform:translateY(-1px)}
+  .card-top{display:flex;gap:12px;align-items:flex-start}
+  .card-ico{width:38px;height:38px;flex:none;border-radius:11px;background:var(--teal-tint);display:grid;place-items:center;color:var(--teal-dark)}
+  .card-ico svg{width:20px;height:20px}
+  .card h3{font-size:16px;color:var(--navy-800);letter-spacing:-.015em}
+  .card-tag{display:block;margin-top:5px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint)}
+  .card p{color:var(--ink-soft);font-size:14.3px;line-height:1.55}
+  .card-link{
+    margin-top:auto;display:inline-flex;align-items:center;gap:7px;align-self:flex-start;
+    color:var(--teal-dark);font-size:14px;font-weight:700;letter-spacing:-.01em;padding:7px 0;
+  }
+  .card-link svg{width:15px;height:15px;transition:transform .15s ease}
+  .card-link:hover svg{transform:translateX(3px)}
+  .card.urgent{border-color:#f3d9c7;background:linear-gradient(180deg,#fff9f4,#fff)}
+  .card.urgent .card-ico{background:#fdeadd;color:#c0632a}
+  .card.urgent .card-link{color:#b55a23}
+  .card[hidden]{display:none}
+  .no-match{display:none;color:var(--ink-soft);font-size:15px;padding:20px 0}
+  .no-match a{color:var(--teal-dark);font-weight:700}
+
+  /* why us */
+  .why-grid{display:grid;gap:12px;margin-top:24px}
+  .why{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow-sm)}
+  .why-ico{width:40px;height:40px;border-radius:12px;background:var(--navy-800);color:var(--mint);display:grid;place-items:center;margin-bottom:12px}
+  .why-ico svg{width:21px;height:21px}
+  .why h3{font-size:16.5px;color:var(--navy-800)}
+  .why p{margin-top:7px;color:var(--ink-soft);font-size:14.3px;line-height:1.55}
+
+  /* reviews */
+  .rev-head{
+    display:flex;flex-direction:column;gap:18px;align-items:flex-start;
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:20px;margin-top:24px;box-shadow:var(--shadow-sm);
+  }
+  .score{display:flex;align-items:center;gap:14px}
+  .score-num{font-family:"Fraunces",Georgia,serif;font-size:46px;line-height:1;color:var(--navy-800);font-weight:500}
+  .score-meta .stars{display:block;color:var(--gold);font-size:17px;letter-spacing:2px}
+  .score-meta div{font-size:13.5px;color:var(--ink-soft);margin-top:4px}
+  .score-g{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-faint);font-weight:600}
+  .score-g svg{width:16px;height:16px}
+  .quotes{display:grid;gap:12px;margin-top:14px}
+  .quote{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:18px;box-shadow:var(--shadow-sm)}
+  .quote .qm{font-family:"Fraunces",Georgia,serif;font-size:40px;line-height:.6;color:#cfe6e3;height:22px}
+  .quote blockquote{margin:0;font-size:15.3px;color:var(--ink);line-height:1.58;font-weight:500}
+  .quote .qs{margin-top:12px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-faint)}
+  .quote .qs .stars{color:var(--gold);letter-spacing:1px}
+
+  /* visit */
+  .visit{background:var(--navy-800);color:#fff;padding:52px 0}
+  .visit .sec-h{color:#fff}
+  .visit .eyebrow{color:var(--mint)}
+  .visit .eyebrow::before{background:var(--mint)}
+  .visit .sec-p{color:#bed0e2}
+  .visit-grid{display:grid;gap:14px;margin-top:26px}
+  .vcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:var(--r-lg);padding:20px}
+  .vrow{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .vrow:first-child{padding-top:0}
+  .vrow-ico{width:34px;height:34px;flex:none;border-radius:10px;background:rgba(95,216,203,.13);display:grid;place-items:center;color:var(--mint)}
+  .vrow-ico svg{width:18px;height:18px}
+  .vrow-l{display:block;font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#8fa8c2}
+  .vrow-v{display:block;font-size:15px;color:#fff;margin-top:3px;line-height:1.5;font-weight:500;overflow-wrap:anywhere}
+  .vrow-v a:hover{color:var(--mint)}
+  .vrow-n{display:block;font-size:12.5px;color:#9fb6d0;margin-top:3px}
+  .visit-btns{display:grid;gap:10px;margin-top:18px}
+  .map-embed{border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.04)}
+  .map-embed a{display:block;padding:24px 18px;text-align:center}
+  .map-embed a:hover{background:rgba(255,255,255,.04)}
+  .map-pin{width:46px;height:46px;margin:0 auto 12px;border-radius:50%;background:rgba(95,216,203,.14);display:grid;place-items:center;color:var(--mint)}
+  .map-pin svg{width:23px;height:23px}
+  .map-embed strong{display:block;font-size:15.5px;color:#fff;font-weight:600}
+  .map-embed span.map-note{display:block;font-size:13px;color:#9fb6d0;margin-top:5px}
+
+  /* final cta */
+  .final{padding:52px 0;background:var(--surface);text-align:center}
+  .final h2{font-size:clamp(24px,6.2vw,34px);color:var(--navy-800)}
+  .final p{margin:12px auto 0;color:var(--ink-soft);font-size:15.5px;max-width:48ch}
+  .final-btns{display:grid;gap:10px;margin:22px auto 0;max-width:360px}
+
+  /* footer */
+  footer{background:var(--navy-900);color:#9fb6d0;padding:34px 0 30px;font-size:13.5px}
+  .foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .foot-brand .brand-name{font-size:17px}
+  .foot-grid{display:grid;gap:22px}
+  .foot-h{color:#fff;font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin-bottom:10px}
+  .foot-grid a:hover{color:#fff}
+  .foot-grid li+li{margin-top:7px}
+  .disclaimer{font-size:11.5px;color:#637990;margin-top:12px;line-height:1.5}
+  .foot-bar{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:8px;font-size:12.5px;color:#7d94ad}
+  .foot-bar .credit{color:#b9cadb}
+
+  /* sticky mobile bar */
+  .sticky{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    background:rgba(255,255,255,.97);
+    border-top:1px solid var(--line);
+    padding:9px var(--gutter) calc(9px + env(safe-area-inset-bottom));
+    display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+    box-shadow:0 -6px 22px -12px rgba(10,34,64,.3);
+  }
+  .sticky a{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+    padding:8px 4px;border-radius:12px;font-size:11.5px;font-weight:700;letter-spacing:-.01em;
+    border:1px solid var(--line);color:var(--navy-800);background:#fff;min-width:0;
+  }
+  .sticky a svg{width:19px;height:19px;flex:none}
+  .sticky a span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .sticky a.s-wa{background:var(--wa);border-color:var(--wa);color:#fff}
+  .sticky a.s-call{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
+
+  /* ---------- responsive ---------- */
+  @media (min-width:520px){
+    .hero-cta{flex-direction:row;flex-wrap:wrap}
+    .hero-cta .btn{flex:1 1 auto;min-width:210px}
+    .trust-grid{grid-template-columns:repeat(2,1fr)}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .why-grid{grid-template-columns:repeat(2,1fr)}
+    .quotes{grid-template-columns:repeat(2,1fr)}
+    .visit-btns{grid-template-columns:repeat(2,1fr)}
+    .final-btns{grid-template-columns:repeat(2,1fr);max-width:480px}
+  }
+  @media (min-width:760px){
+    :root{--gutter:24px}
+    body{padding-bottom:0}
+    .sec{padding:72px 0}
+    .visit,.final{padding:72px 0}
+    .hero{padding-top:52px}
+    .trust-grid{grid-template-columns:repeat(3,1fr)}
+    .quotes{grid-template-columns:repeat(3,1fr)}
+    .foot-grid{grid-template-columns:1.4fr 1fr 1fr}
+    .rev-head{flex-direction:row;align-items:center;justify-content:space-between;padding:24px 28px}
+    .sticky{display:none}
+    .head-cta{display:inline-flex}
+  }
+  @media (min-width:980px){
+    .head-nav{display:flex}
+    .hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+    .hero-art{margin-top:0}
+    .cards{grid-template-columns:repeat(3,1fr)}
+    .why-grid{grid-template-columns:repeat(4,1fr)}
+    .visit-grid{grid-template-columns:1.05fr .95fr;align-items:start}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;animation:none !important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- ================= HEADER ================= -->
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="The Dental Space — top of page">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#5fd8cb" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.8-1.6-4.3-2-6-.8-1.9 1.4-2.3 4.3-1.6 7 .5 1.9 1 3.3 1.5 5 .4 1.3 1.1 2.3 2 2.3 1.2 0 1.5-1.3 1.7-2.8.2-1.6.6-2.9 2.4-2.9s2.2 1.3 2.4 2.9c.2 1.5.5 2.8 1.7 2.8.9 0 1.6-1 2-2.3.5-1.7 1-3.1 1.5-5 .7-2.7.3-5.6-1.6-7-1.7-1.2-4.2-.8-6 .8Z"/></svg>
+      </span>
+      <span class="brand-txt">
+        <span class="brand-name">The Dental Space</span>
+        <span class="brand-sub">Kondapur &middot; Gachibowli</span>
+      </span>
+    </a>
+    <nav class="head-nav" aria-label="Primary">
+      <a href="#treatments">Treatments</a>
+      <a href="#why">Why us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-teal head-cta" href="tel:+919000790024">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+      090007 90024
+    </a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="pill">
+        <span class="stars" aria-hidden="true">&#9733;</span>
+        <span><b>5.0 &#9733; Rated Dental Clinic</b> &bull; Botanical Garden Rd, Kondapur / Gachibowli</span>
+      </span>
+
+      <h1 class="hero-h serif">Comfortable root canals, lasting implants and <em>honest pricing</em> on Botanical Garden Road.</h1>
+
+      <p class="hero-sub">A calm, modern neighbourhood clinic for the whole family &mdash; from a child&rsquo;s first check-up to single-sitting root canals, implants and braces. <b>You&rsquo;ll always know the cost before we begin.</b></p>
+
+      <div class="hero-cta">
+        <a class="btn btn-wa" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20book%20an%20appointment.">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.1-1.4A9.9 9.9 0 1 0 12 2Zm5.8 14c-.2.7-1.4 1.4-2 1.4-.5.1-1.1.1-1.8-.1a12 12 0 0 1-4.4-2.7 11 11 0 0 1-2.3-3.5c-.3-.8-.3-1.5 0-2.1.2-.4.6-.9 1-1 .3-.2.8-.1 1 .1l.3.5.7 1.5c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .6a9 9 0 0 0 3.8 3.1c.3.1.5.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l2 1c.3.1.4.4.3.8Z"/></svg>
+          Book via WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="tel:+919000790024">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          Call 090007 90024
+        </a>
+      </div>
+
+      <p class="hero-hours">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        Opens 10:00 AM Sat &bull; Evening &amp; Weekend Slots Available
+      </p>
+    </div>
+
+    <div class="hero-art">
+      <div class="hero-card">
+        <h3>What patients come to us for</h3>
+        <ul class="mini-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Single-sitting root canals</b> &mdash; most cases finished in one visit</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Implants, crowns &amp; dentures</b> for missing teeth</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gentle care for kids</b> and nervous first-timers</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Same-day relief</b> for sudden toothache or a broken tooth</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- trust strip -->
+  <div class="trust">
+    <div class="wrap">
+      <ul class="trust-grid">
+        <li class="trust-item">
+          <span class="trust-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg></span>
+          <span>
+            <span class="trust-t">5.0 &#9733; (28 Google Reviews)</span>
+            <span class="trust-d">Rated five stars by neighbours across Kondapur &amp; Gachibowli</span>
+          </span>
+        </li>
+        <li class="trust-item">
+          <span class="trust-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4.6 4.6 0 0 1 7-3.9A4.6 4.6 0 0 1 19 11c0 5.6-7 10-7 10Z"/></svg></span>
+          <span>
+            <span class="trust-t">Clean Facility &amp; Friendly Team</span>
+            <span class="trust-d">Sterilised instruments, calm rooms and staff who explain every step</span>
+          </span>
+        </li>
+        <li class="trust-item">
+          <span class="trust-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5.5c0-1.9-2.2-2.5-5-2.5s-5 .9-5 3 2.2 2.8 5 3.5 5 1.4 5 3.5-2.2 3-5 3-5-.6-5-2.5"/></svg></span>
+          <span>
+            <span class="trust-t">Reasonable Pricing &amp; Urgent Care</span>
+            <span class="trust-d">Clear estimates up front, with slots kept open for emergencies</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TREATMENTS ================= -->
+<section class="sec" id="treatments">
+  <div class="wrap">
+    <span class="eyebrow">Treatments</span>
+    <h2 class="sec-h serif">Everything your family needs, under one roof</h2>
+    <p class="sec-p">Tap a category to narrow things down &mdash; then send us the treatment name on WhatsApp and we&rsquo;ll reply with timings and an estimate.</p>
+
+    <div class="tabs-wrap">
+      <div class="tabs" role="tablist" aria-label="Treatment categories">
+        <button class="tab" type="button" role="tab" aria-selected="true" aria-controls="cardGrid" data-filter="all">All treatments</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="cardGrid" data-filter="rct">Root Canal &amp; Care</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="cardGrid" data-filter="implants">Implants &amp; Restorations</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="cardGrid" data-filter="routine">Routine</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="cardGrid" data-filter="cosmetic">Cosmetic</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="cardGrid" data-filter="ortho">Ortho &amp; Kids</button>
+      </div>
+      <p class="tabs-hint" id="countHint" aria-live="polite">Showing all treatments</p>
+    </div>
+
+    <ul class="cards" id="cardGrid">
+
+      <li class="card" data-cat="rct">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.8-1.6-4.3-2-6-.8-1.9 1.4-2.3 4.3-1.6 7 .5 1.9 1 3.3 1.5 5 .4 1.3 1.1 2.3 2 2.3 1.2 0 1.5-1.3 1.7-2.8.2-1.6.6-2.9 2.4-2.9s2.2 1.3 2.4 2.9c.2 1.5.5 2.8 1.7 2.8.9 0 1.6-1 2-2.3.5-1.7 1-3.1 1.5-5 .7-2.7.3-5.6-1.6-7-1.7-1.2-4.2-.8-6 .8Z"/></svg></span>
+          <span><h3>Single-Sitting Root Canal</h3><span class="card-tag">Root Canal &amp; Care</span></span>
+        </div>
+        <p>Saves a badly decayed or painful tooth &mdash; most cases are completed comfortably in one appointment.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Single-Sitting%20Root%20Canal.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="rct">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.3 6.4L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          <span><h3>Re-Root Canal (Re-RCT)</h3><span class="card-tag">Root Canal &amp; Care</span></span>
+        </div>
+        <p>A second chance for a tooth where an earlier root canal has failed or become painful again.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Re-Root%20Canal%20%28Re-RCT%29.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="rct implants">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9a7 7 0 0 1 14 0v1H5V9Z"/><path d="M8 13v3M12 13v5M16 13v3"/></svg></span>
+          <span><h3>Post-RCT Crown Protection</h3><span class="card-tag">Root Canal &amp; Care</span></span>
+        </div>
+        <p>A custom cap fitted after your root canal, so the treated tooth can bite normally and last for years.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Post-RCT%20Crown%20Protection.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card urgent" data-cat="rct routine">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/></svg></span>
+          <span><h3>Emergency &amp; Same-Day Care</h3><span class="card-tag">Urgent care</span></span>
+        </div>
+        <p>Sudden toothache, swelling, a lost filling or a broken tooth &mdash; call us and we&rsquo;ll try to see you today.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%20need%20urgent%20help%20today%20%28Emergency%20%2F%20Same-Day%20Care%29.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="implants">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10l-1.2 4H8.2L7 4Z"/><path d="M9 8.5 12 21l3-12.5"/><path d="M9.5 13h5M9 17h6"/></svg></span>
+          <span><h3>Dental Implants</h3><span class="card-tag">Implants &amp; Restorations</span></span>
+        </div>
+        <p>A permanent replacement for a missing tooth that looks, feels and bites like your own.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Dental%20Implants.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="implants">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 7 5h10l3 5-8 3-8-3Z"/><path d="M4 10v4a8 8 0 0 0 16 0v-4"/></svg></span>
+          <span><h3>Crowns &amp; Bridges</h3><span class="card-tag">Implants &amp; Restorations</span></span>
+        </div>
+        <p>Rebuilds a cracked, worn or missing tooth with a natural-looking ceramic crown or fixed bridge.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Crowns%20%26%20Bridges.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="implants">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8c0-1.7 4-3 9-3s9 1.3 9 3c0 4.4-3.4 11-9 11S3 12.4 3 8Z"/><path d="M7 7.5v3M12 7v3.5M17 7.5v3"/></svg></span>
+          <span><h3>Full &amp; Partial Dentures</h3><span class="card-tag">Implants &amp; Restorations</span></span>
+        </div>
+        <p>Comfortable, well-fitted dentures that bring back easy eating, clear speech and a confident smile.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Full%20%26%20Partial%20Dentures.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="routine">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5 20.5 10l-9 9H5v-6.5l9-9Z"/><path d="M11 6.5 17.5 13"/></svg></span>
+          <span><h3>Teeth Cleaning &amp; Polishing</h3><span class="card-tag">Routine</span></span>
+        </div>
+        <p>Removes tartar and surface stains in about 30 minutes &mdash; the simplest way to keep gums healthy.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Teeth%20Cleaning%20%26%20Polishing.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="routine">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>
+          <span><h3>Tooth-Coloured Fillings</h3><span class="card-tag">Routine</span></span>
+        </div>
+        <p>Cavities sealed with composite that blends into the tooth &mdash; no silver, no obvious patch.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Tooth-Coloured%20Fillings.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="routine">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l-.8 5H9.8L9 3Z"/><path d="M10 8c-2.5 1-4 3-4 5.5 0 3 2 7.5 4 7.5 1.3 0 1.4-4 2-4s.7 4 2 4c2 0 4-4.5 4-7.5C18 11 16.5 9 14 8"/></svg></span>
+          <span><h3>Tooth Extraction</h3><span class="card-tag">Routine</span></span>
+        </div>
+        <p>Gentle removal of a tooth that can&rsquo;t be saved, wisdom teeth included, with proper numbing throughout.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Tooth%20Extraction.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="routine">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 9v6M12 8v8M16 9v6"/></svg></span>
+          <span><h3>Digital X-Ray &amp; Diagnosis</h3><span class="card-tag">Routine</span></span>
+        </div>
+        <p>Low-radiation digital imaging on screen in seconds, so you can see exactly what we see.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Digital%20X-Ray%20%26%20Diagnosis.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="cosmetic">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.9 4.1L18 9l-4.1 1.9L12 15l-1.9-4.1L6 9l4.1-1.9L12 3Z"/><path d="m18.5 15.5.8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8.8-1.7Z"/></svg></span>
+          <span><h3>Teeth Whitening</h3><span class="card-tag">Cosmetic</span></span>
+        </div>
+        <p>Safely lifts years of tea, coffee and tobacco staining &mdash; noticeably brighter in a single sitting.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Teeth%20Whitening.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="cosmetic">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h4.5v9A2.2 2.2 0 0 1 7.2 16 2.2 2.2 0 0 1 5 14V5Z"/><path d="M14.5 5H19v9a2.2 2.2 0 0 1-2.3 2 2.2 2.2 0 0 1-2.2-2V5Z"/></svg></span>
+          <span><h3>Veneers &amp; Smile Design</h3><span class="card-tag">Cosmetic</span></span>
+        </div>
+        <p>Thin ceramic facings that correct the shape, shade and small gaps across your front teeth.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Veneers%20%26%20Smile%20Design.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="cosmetic">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4 11.5-11.5Z"/><path d="m14 6 3 3"/></svg></span>
+          <span><h3>Composite Bonding</h3><span class="card-tag">Cosmetic</span></span>
+        </div>
+        <p>Chips, gaps and uneven edges reshaped with tooth-coloured material in one quick visit.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Composite%20Bonding.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="ortho">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18"/><rect x="5" y="11" width="3.5" height="4" rx="1"/><rect x="10.2" y="11" width="3.5" height="4" rx="1"/><rect x="15.5" y="11" width="3.5" height="4" rx="1"/></svg></span>
+          <span><h3>Braces &mdash; Metal &amp; Ceramic</h3><span class="card-tag">Ortho &amp; Kids</span></span>
+        </div>
+        <p>Straightens crowded or crooked teeth with planned monthly reviews and costs agreed up front.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Braces%20%28Metal%20%26%20Ceramic%29.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="ortho cosmetic">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6c0-1.1 3.1-2 7-2s7 .9 7 2c0 3.6-2.6 8-7 8S5 9.6 5 6Z"/><path d="M7.5 16.5c1.3.6 2.9 1 4.5 1s3.2-.4 4.5-1"/><path d="M8 19.5c1.2.4 2.6.6 4 .6s2.8-.2 4-.6"/></svg></span>
+          <span><h3>Clear Aligners</h3><span class="card-tag">Ortho &amp; Kids</span></span>
+        </div>
+        <p>Nearly invisible removable trays &mdash; a discreet option for adults who&rsquo;d rather skip braces.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Clear%20Aligners.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+      <li class="card" data-cat="ortho">
+        <div class="card-top">
+          <span class="card-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9.5 8.5h.01M14.5 8.5h.01"/><path d="M9.8 11.5a3 3 0 0 0 4.4 0"/><path d="M6 20c1.2-2.4 3.5-3.5 6-3.5s4.8 1.1 6 3.5"/></svg></span>
+          <span><h3>Kids Dental Care</h3><span class="card-tag">Ortho &amp; Kids</span></span>
+        </div>
+        <p>Check-ups, fluoride, sealants and milk-tooth fillings &mdash; handled patiently, at a child&rsquo;s own pace.</p>
+        <a class="card-link" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20ask%20about%20Kids%20Dental%20Care.">Ask / Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </li>
+
+    </ul>
+    <p class="no-match" id="noMatch">Nothing listed in this category yet &mdash; <a href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%20have%20a%20question%20about%20a%20treatment.">ask us on WhatsApp</a>.</p>
+  </div>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section class="sec sec-tint" id="why">
+  <div class="wrap">
+    <span class="eyebrow">Why patients choose us</span>
+    <h2 class="sec-h serif">Unhurried, honest dentistry close to home</h2>
+    <p class="sec-p">The four things our Google reviewers mention most often &mdash; and the things we work hardest to get right.</p>
+
+    <div class="why-grid">
+      <article class="why">
+        <span class="why-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3.5"/><path d="M19.5 20v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 5a3.5 3.5 0 0 1 0 6.5"/></svg></span>
+        <h3>A friendly team</h3>
+        <p>You&rsquo;re greeted by name, told what&rsquo;s happening before it happens, and never rushed through the chair.</p>
+      </article>
+      <article class="why">
+        <span class="why-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-9.5V5.5L12 2.5 4 5.5v7C4 18.5 12 22 12 22Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3>A genuinely clean clinic</h3>
+        <p>Instruments sterilised between every patient, single-use disposables, and surfaces you can trust.</p>
+      </article>
+      <article class="why">
+        <span class="why-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6.5 12h.01M17.5 12h.01"/></svg></span>
+        <h3>Reasonable pricing</h3>
+        <p>An estimate before treatment starts. No surprise add-ons, and no pressure to upgrade anything.</p>
+      </article>
+      <article class="why">
+        <span class="why-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-8-4.6-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10.5c0 5.4-8 10-8 10Z"/><path d="M4.5 11h3l2-3.5 3 7 2-3.5h5"/></svg></span>
+        <h3>Root canal expertise</h3>
+        <p>Endodontic work &mdash; RCT and re-RCT &mdash; is what we&rsquo;re best known for, and what reviewers thank us for.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <span class="eyebrow">Google Reviews</span>
+    <h2 class="sec-h serif">5.0 &#9733; from 28 neighbours</h2>
+
+    <div class="rev-head">
+      <div class="score">
+        <span class="score-num">5.0</span>
+        <span class="score-meta">
+          <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <div>Average of <b>28 Google reviews</b></div>
+        </span>
+      </div>
+      <span class="score-g">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4Z"/><path fill="#34A853" d="M12 22c2.7 0 4.9-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1a6 6 0 0 1-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9L6.4 14Z"/><path fill="#EA4335" d="M12 6c1.5 0 2.8.5 3.8 1.5l2.8-2.8A10 10 0 0 0 3.1 7.5l3.3 2.6A6 6 0 0 1 12 6Z"/></svg>
+        Verified on Google
+      </span>
+    </div>
+
+    <div class="quotes">
+      <figure class="quote">
+        <div class="qm" aria-hidden="true">&ldquo;</div>
+        <blockquote>Friendly staff, clean facility, and excellent care.</blockquote>
+        <figcaption class="qs"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google review</figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="qm" aria-hidden="true">&ldquo;</div>
+        <blockquote>I was very pleased with the reasonable pricing for my treatment.</blockquote>
+        <figcaption class="qs"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google review</figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="qm" aria-hidden="true">&ldquo;</div>
+        <blockquote>Highly recommended, had my root canal treatment and it was a great experience.</blockquote>
+        <figcaption class="qs"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google review</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <span class="eyebrow">Visit us</span>
+    <h2 class="sec-h serif">Find us on Botanical Garden Road</h2>
+    <p class="sec-p">Inside SMR Vinay Iconia Plaza, on the Kondapur&ndash;Gachibowli stretch of Botanical Garden Road &mdash; easy to reach from either side, with evening and weekend slots.</p>
+
+    <div class="visit-grid">
+      <div class="vcard">
+        <div class="vrow">
+          <span class="vrow-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.8"/></svg></span>
+          <span>
+            <span class="vrow-l">Clinic address</span>
+            <span class="vrow-v">105, SMR Vinay Iconia Plaza, Botanical Garden Rd, Kondapur, Sri Maruthi Nagar Colony, Gachibowli, Serilingampalle (M), Telangana 500019</span>
+          </span>
+        </div>
+        <div class="vrow">
+          <span class="vrow-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+          <span>
+            <span class="vrow-l">Phone &amp; WhatsApp</span>
+            <span class="vrow-v"><a href="tel:+919000790024">090007 90024</a></span>
+            <span class="vrow-n">+91 90007 90024 &mdash; call us or send a message</span>
+          </span>
+        </div>
+        <div class="vrow">
+          <span class="vrow-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <span>
+            <span class="vrow-l">Timings</span>
+            <span class="vrow-v">Opens 10:00 AM Sat</span>
+            <span class="vrow-n">Evening &amp; weekend slots available &bull; urgent cases seen same day</span>
+          </span>
+        </div>
+
+        <div class="visit-btns">
+          <a class="btn btn-wa btn-block" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20book%20an%20appointment.">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.1-1.4A9.9 9.9 0 1 0 12 2Zm5.8 14c-.2.7-1.4 1.4-2 1.4-.5.1-1.1.1-1.8-.1a12 12 0 0 1-4.4-2.7 11 11 0 0 1-2.3-3.5c-.3-.8-.3-1.5 0-2.1.2-.4.6-.9 1-1 .3-.2.8-.1 1 .1l.3.5.7 1.5c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .6a9 9 0 0 0 3.8 3.1c.3.1.5.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l2 1c.3.1.4.4.3.8Z"/></svg>
+            Book via WhatsApp
+          </a>
+          <a class="btn btn-ghost btn-block" href="tel:+919000790024">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            Call 090007 90024
+          </a>
+        </div>
+      </div>
+
+      <div class="map-embed">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=The+Dental+Space+SMR+Vinay+Iconia+Plaza+Botanical+Garden+Rd+Kondapur+Hyderabad" target="_blank" rel="noopener noreferrer">
+          <span class="map-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.8"/></svg></span>
+          <strong>Get Directions</strong>
+          <span class="map-note">Opens The Dental Space in Google Maps &mdash; SMR Vinay Iconia Plaza, Botanical Garden Rd</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final">
+  <div class="wrap">
+    <h2 class="serif">Not sure what you need? Just ask.</h2>
+    <p>Describe the problem on WhatsApp and we&rsquo;ll tell you honestly whether you need to come in &mdash; and what it is likely to cost.</p>
+    <div class="final-btns">
+      <a class="btn btn-wa btn-block" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20book%20an%20appointment.">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.1-1.4A9.9 9.9 0 1 0 12 2Zm5.8 14c-.2.7-1.4 1.4-2 1.4-.5.1-1.1.1-1.8-.1a12 12 0 0 1-4.4-2.7 11 11 0 0 1-2.3-3.5c-.3-.8-.3-1.5 0-2.1.2-.4.6-.9 1-1 .3-.2.8-.1 1 .1l.3.5.7 1.5c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .6a9 9 0 0 0 3.8 3.1c.3.1.5.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l2 1c.3.1.4.4.3.8Z"/></svg>
+        Book via WhatsApp
+      </a>
+      <a class="btn btn-line btn-block" href="tel:+919000790024">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        Call 090007 90024
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5fd8cb" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.8-1.6-4.3-2-6-.8-1.9 1.4-2.3 4.3-1.6 7 .5 1.9 1 3.3 1.5 5 .4 1.3 1.1 2.3 2 2.3 1.2 0 1.5-1.3 1.7-2.8.2-1.6.6-2.9 2.4-2.9s2.2 1.3 2.4 2.9c.2 1.5.5 2.8 1.7 2.8.9 0 1.6-1 2-2.3.5-1.7 1-3.1 1.5-5 .7-2.7.3-5.6-1.6-7-1.7-1.2-4.2-.8-6 .8Z"/></svg>
+          </span>
+          <span class="brand-name">The Dental Space</span>
+        </div>
+        <p>5.0 &#9733; rated dental clinic on Botanical Garden Rd, Kondapur / Gachibowli &mdash; root canals, implants, family and cosmetic dentistry.</p>
+        <p class="disclaimer">Concept demonstration website. Clinic details shown are publicly listed information &mdash; please confirm timings and pricing with the clinic directly.</p>
+      </div>
+      <div>
+        <h4 class="foot-h">Treatments</h4>
+        <ul>
+          <li><a href="#treatments">Root canal &amp; re-RCT</a></li>
+          <li><a href="#treatments">Implants, crowns &amp; dentures</a></li>
+          <li><a href="#treatments">Cleaning, fillings &amp; X-ray</a></li>
+          <li><a href="#treatments">Whitening &amp; veneers</a></li>
+          <li><a href="#treatments">Braces, aligners &amp; kids</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="foot-h">Contact</h4>
+        <ul>
+          <li><a href="tel:+919000790024">090007 90024</a></li>
+          <li><a href="https://wa.me/919000790024">WhatsApp us</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=The+Dental+Space+SMR+Vinay+Iconia+Plaza+Botanical+Garden+Rd+Kondapur+Hyderabad" target="_blank" rel="noopener noreferrer">Get directions</a></li>
+          <li>Opens 10:00 AM Sat</li>
+          <li>Evening &amp; weekend slots</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>&copy; <span id="yr">2026</span> The Dental Space, Kondapur / Gachibowli, Hyderabad.</span>
+      <span class="credit">Concept website designed by Abdul Ibrahim</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= STICKY MOBILE BAR ================= -->
+<nav class="sticky" aria-label="Quick contact">
+  <a class="s-call" href="tel:+919000790024">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+    <span>Call</span>
+  </a>
+  <a class="s-wa" href="https://wa.me/919000790024?text=Hi%20The%20Dental%20Space%2C%20I%27d%20like%20to%20book%20an%20appointment.">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.1-1.4A9.9 9.9 0 1 0 12 2Zm5.8 14c-.2.7-1.4 1.4-2 1.4-.5.1-1.1.1-1.8-.1a12 12 0 0 1-4.4-2.7 11 11 0 0 1-2.3-3.5c-.3-.8-.3-1.5 0-2.1.2-.4.6-.9 1-1 .3-.2.8-.1 1 .1l.3.5.7 1.5c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.4 0 .6a9 9 0 0 0 3.8 3.1c.3.1.5.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l2 1c.3.1.4.4.3.8Z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=The+Dental+Space+SMR+Vinay+Iconia+Plaza+Botanical+Garden+Rd+Kondapur+Hyderabad" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.8"/></svg>
+    <span>Directions</span>
+  </a>
+</nav>
+
+<script>
+(function(){
+  var tabs  = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#cardGrid .card'));
+  var hint  = document.getElementById('countHint');
+  var none  = document.getElementById('noMatch');
+  var total = cards.length;
+
+  function apply(filter){
+    var shown = 0;
+    cards.forEach(function(c){
+      var cats = (c.getAttribute('data-cat') || '').split(/\s+/);
+      var ok = (filter === 'all') || cats.indexOf(filter) !== -1;
+      c.hidden = !ok;
+      if (ok) shown++;
+    });
+    none.style.display = shown ? 'none' : 'block';
+    if (hint){
+      hint.textContent = (filter === 'all')
+        ? 'Showing all ' + total + ' treatments'
+        : 'Showing ' + shown + ' of ' + total + ' treatments';
+    }
+  }
+
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(o){ o.setAttribute('aria-selected', o === t ? 'true' : 'false'); });
+      apply(t.getAttribute('data-filter'));
+    });
+  });
+
+  apply('all');
+
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
